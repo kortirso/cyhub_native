@@ -12,9 +12,7 @@ class LoginForm extends Component {
     }
 
     _onButtonPress() {
-        let username=this.state.username;
-        let password=this.state.password;
-        this.props.login();
+        this.props.login(this.state.username, this.state.password);
     }
 
     render() {

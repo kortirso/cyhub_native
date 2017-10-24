@@ -4,8 +4,8 @@ import LoginForm from './LoginForm';
 
 class Login extends Component {
 
-    _login() {
-        this.props.login();
+    _login(username, password) {
+        this.props.login(username, password);
     }
 
     render() {

@@ -4,6 +4,7 @@ import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
 import Login from './components/Login';
+import userLoginAsync from './api/userLoginAsync';
 
 export default class App extends React.Component {
     state = {
@@ -19,7 +20,8 @@ export default class App extends React.Component {
         }
     }
 
-    _login() {
+    _login(username, password) {
+        userLoginAsync(username, password);
         this.setState({logged: true});
     }
 
