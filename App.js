@@ -4,7 +4,6 @@ import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
 import Login from './components/Login';
-import userLoginAsync from './api/userLoginAsync';
 
 export default class App extends React.Component {
     state = {
@@ -20,9 +19,11 @@ export default class App extends React.Component {
         }
     }
 
-    _login(username, password) {
-        userLoginAsync(username, password);
-        this.setState({logged: true});
+    async _login(username, password) {
+        let response = await fetch(`http://localhost:3000/api/v1/users/me.json?email=${username}&password=${password}`).then(function(response) {
+            return response;
+        });
+        if (response.status == 200) this.setState({logged: true});
     }
 
     render() {
