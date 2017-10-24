@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Alert, Button, StyleSheet, StatusBar} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Button, StyleSheet, StatusBar} from 'react-native';
 
 class LoginForm extends Component {
 
@@ -14,6 +14,7 @@ class LoginForm extends Component {
     _onButtonPress() {
         let username=this.state.username;
         let password=this.state.password;
+        this.props.login();
     }
 
     render() {

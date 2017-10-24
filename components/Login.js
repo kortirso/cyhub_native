@@ -3,11 +3,16 @@ import { View, Text, Image, StyleSheet,KeyboardAvoidingView } from 'react-native
 import LoginForm from './LoginForm';
 
 class Login extends Component {
+
+    _login() {
+        this.props.login();
+    }
+
     render() {
         return (
             <KeyboardAvoidingView behavior='padding' style={styles.container}>
                 <View style={styles.formContainer}>
-                    <LoginForm />
+                    <LoginForm login={this._login.bind(this)} />
                 </View>
             </KeyboardAvoidingView>
         );
