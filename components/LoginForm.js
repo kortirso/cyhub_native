@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Button, StyleSheet, StatusBar} from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
 
-class LoginForm extends Component {
-
+export default class LoginForm extends Component {
     constructor() {
         super();
         this.state = {
@@ -36,5 +35,3 @@ const styles = StyleSheet.create({
     buttonText: {color: '#FFF', textAlign: 'center', fontWeight: '700'}, 
     loginButton: {backgroundColor: '#2980b6', color: '#FFF'}
 });
-
-export default LoginForm;
