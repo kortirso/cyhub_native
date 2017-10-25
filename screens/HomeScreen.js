@@ -28,6 +28,7 @@ export default class HomeScreen extends React.Component {
           </View>
           <View style={styles.getStartedContainer}>
             <Text style={styles.getStartedText}>Hello, {this.state.user.email}</Text>
+            <Text style={styles.getStartedText}>You have {this.state.user.days_left} days for working in CyHub</Text>
           </View>
         </ScrollView>
       </View>
@@ -41,5 +42,5 @@ const styles = StyleSheet.create({
   welcomeContainer: {alignItems: 'center', marginTop: 10, marginBottom: 20},
   welcomeImage: {width: 100, height: 80, resizeMode: 'contain', marginTop: 3, marginLeft: -10},
   getStartedContainer: {alignItems: 'center', marginHorizontal: 50},
-  getStartedText: {fontSize: 17, color: 'rgba(96,100,109, 1)', lineHeight: 24, textAlign: 'center'}
+  getStartedText: {fontSize: 17, color: 'rgba(96,100,109, 1)', lineHeight: 24, textAlign: 'center', marginBottom: 20}
 });
