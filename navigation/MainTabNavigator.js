@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Colors from '../constants/Colors';
 import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
+import PartnersScreen from '../screens/PartnersScreen';
 import MembersScreen from '../screens/MembersScreen';
 
 export default TabNavigator(
@@ -12,8 +12,8 @@ export default TabNavigator(
     Home: {
       screen: HomeScreen,
     },
-    Links: {
-      screen: LinksScreen,
+    Partners: {
+      screen: PartnersScreen,
     },
     Members: {
       screen: MembersScreen,
@@ -28,7 +28,7 @@ export default TabNavigator(
           case 'Home':
             iconName = Platform.OS === 'ios' ? `ios-information-circle${focused ? '' : '-outline'}` : 'md-information-circle';
             break;
-          case 'Links':
+          case 'Partners':
             iconName = Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link';
             break;
           case 'Members':
