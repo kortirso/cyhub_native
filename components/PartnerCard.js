@@ -17,8 +17,8 @@ export default class PartnerCard extends Component {
 
 const styles = StyleSheet.create({
   container: {flex: 1, paddingLeft: 20, paddingRight: 20, marginBottom: 30},
-  textName: {fontSize: 18, fontWeight: '500', color: 'rgba(96,100,109, 1)', lineHeight: 20},
-  textLabel: {fontSize: 14, color: 'rgba(96,100,109, 1)', lineHeight: 16, marginBottom: 10},
-  textDescription: {fontSize: 16, color: 'rgba(96,100,109, 1)', lineHeight: 18, marginBottom: 5},
-  textLink: {fontSize: 16, color: 'rgba(96,100,109, 1)', lineHeight: 18, marginBottom: 5}
+  textName: {fontSize: 18, fontWeight: '500', color: 'rgba(96,100,109,1)', lineHeight: 20},
+  textLabel: {fontSize: 14, color: 'rgba(96,100,109,1)', lineHeight: 16, marginBottom: 10},
+  textDescription: {fontSize: 16, color: 'rgba(96,100,109,1)', lineHeight: 18, marginBottom: 5},
+  textLink: {fontSize: 16, color: 'rgba(96,100,109,1)', lineHeight: 18, marginBottom: 5}
 });

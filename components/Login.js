@@ -11,7 +11,7 @@ export default class Login extends Component {
     return (
       <KeyboardAvoidingView behavior='padding' style={styles.container}>
         <View style={styles.loginContainer}>
-          <LoginForm login={this._login.bind(this)} />
+          <LoginForm login={this._login.bind(this)} fontLoaded={this.props.fontLoaded} />
         </View>
       </KeyboardAvoidingView>
     );
@@ -19,6 +19,6 @@ export default class Login extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#2c3e50'},
+  container: {flex: 1, backgroundColor: '#F2F2F2'},
   loginContainer: {alignItems: 'center', flexGrow: 1, justifyContent: 'center'}
 });
