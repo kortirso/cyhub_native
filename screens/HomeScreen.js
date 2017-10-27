@@ -16,31 +16,45 @@ export default class HomeScreen extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({user: this.props.screenProps});
+    this.setState({user: this.props.screenProps.user});
   }
 
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image source={ __DEV__ ? require('../assets/images/robot-dev.png') : require('../assets/images/robot-prod.png') } style={styles.welcomeImage} />
-          </View>
-          <View style={styles.getStartedContainer}>
-            <Text style={styles.getStartedText}>Hello, {this.state.user.email}</Text>
-            <Text style={styles.getStartedText}>You have {this.state.user.days_left} days for working in CyHub</Text>
-          </View>
-        </ScrollView>
+        {
+          this.props.screenProps.fontLoaded ? (
+            <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+              <View style={styles.welcomeContainer}>
+                <Image source={require('../assets/images/cyhub-icon.png')} style={styles.logoImage} />
+                <View>
+                  <Text style={styles.welcomeGreeting}>Hello!</Text>
+                  <Text style={styles.welcomeUser}>{this.state.user.email}</Text>
+                </View>
+              </View>
+              <View style={styles.getStartedContainer}>
+                <Text style={styles.simpleText}>You got</Text>
+                <Text style={styles.getStartedText}>{this.state.user.days_left}</Text>
+                <Text style={styles.simpleText}>Hubster days left</Text>
+                <Text style={styles.simpleTextSmall}>For now that is!</Text>
+              </View>
+            </ScrollView>
+          ) : null
+        }
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#FFF'},
-  contentContainer: {paddingTop: 30},
-  welcomeContainer: {alignItems: 'center', marginTop: 10, marginBottom: 20},
-  welcomeImage: {width: 100, height: 80, resizeMode: 'contain', marginTop: 3, marginLeft: -10},
-  getStartedContainer: {alignItems: 'center', marginHorizontal: 50},
-  getStartedText: {fontSize: 17, color: 'rgba(96,100,109,1)', lineHeight: 24, textAlign: 'center', marginBottom: 20}
+  container: {flex: 1, backgroundColor: '#E5E5E5'},
+  contentContainer: {paddingTop: 0},
+  welcomeContainer: {paddingVertical: 10, paddingLeft: 15, flex: 1, flexDirection: 'row', borderBottomWidth: 5, borderBottomColor: '#000'},
+  logoImage: {width: 50, height: 50, resizeMode: 'contain', marginRight: 20},
+  welcomeGreeting: {fontFamily: 'opensans-regular', fontSize: 14},
+  welcomeUser: {fontFamily: 'oswald-medium', fontSize: 24},
+  getStartedContainer: {alignItems: 'center', paddingVertical: 10, borderBottomWidth: 5, borderBottomColor: '#000'},
+  simpleText: {fontFamily: 'opensans-regular', fontSize: 16, lineHeight: 24, color: 'rgba(96,100,109,1)'},
+  simpleTextSmall: {fontFamily: 'opensans-regular', fontSize: 14, lineHeight: 24, color: 'rgba(96,100,109,1)'},
+  getStartedText: {fontFamily: 'oswald-medium', fontSize: 100, color: 'rgba(96,100,109,1)'}
 });

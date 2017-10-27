@@ -28,7 +28,7 @@ export default class App extends React.Component {
 
   _checkLogged() {
     if (this.state.logged) {
-      return <RootNavigation user={this.state.user} />;
+      return <RootNavigation user={this.state.user} fontLoaded={this.state.fontLoaded} />;
     } else {
       return <Login login={this._login.bind(this)} fontLoaded={this.state.fontLoaded} />;
     }
@@ -68,8 +68,6 @@ export default class App extends React.Component {
   };
 
   _handleLoadingError = error => {
-    // In this case, you might want to report the error to your error
-    // reporting service, for example Sentry
     console.warn(error);
   };
 
