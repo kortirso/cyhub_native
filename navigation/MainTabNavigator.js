@@ -29,10 +29,10 @@ export default TabNavigator(
             iconName = Platform.OS === 'ios' ? `ios-information-circle${focused ? '' : '-outline'}` : 'md-information-circle';
             break;
           case 'Partners':
-            iconName = Platform.OS === 'ios' ? `ios-link${focused ? '' : '-outline'}` : 'md-link';
+            iconName = Platform.OS === 'ios' ? `ios-people${focused ? '' : '-outline'}` : 'md-people';
             break;
           case 'Members':
-            iconName = Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options';
+            iconName = Platform.OS === 'ios' ? `ios-contacts${focused ? '' : '-outline'}` : 'md-contacts';
         }
         return <Ionicons name={iconName} size={28} style={{ marginBottom: -3 }} color={focused ? Colors.tabIconSelected : Colors.tabIconDefault} />;
       },

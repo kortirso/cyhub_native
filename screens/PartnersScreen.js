@@ -20,7 +20,7 @@ export default class PartnersScreen extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({user: this.props.screenProps});
+    this.setState({user: this.props.screenProps.user});
   }
 
   async _fetchPartners() {
@@ -40,15 +40,18 @@ export default class PartnersScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          {this._renderPartners()}
-        </ScrollView>
+        {
+          this.props.screenProps.fontLoaded ? (
+            <ScrollView style={styles.container}>
+              {this._renderPartners()}
+            </ScrollView>
+          ) : null
+        }
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#FFF'},
-  contentContainer: {paddingTop: 15}
+  container: {flex: 1, backgroundColor: '#E5E5E5'}
 });

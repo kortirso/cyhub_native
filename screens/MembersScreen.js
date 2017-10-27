@@ -27,5 +27,5 @@ export default class MembersScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1, paddingTop: 15, backgroundColor: '#FFF'}
+  container: {flex: 1, paddingTop: 15, backgroundColor: '#E5E5E5'}
 });
