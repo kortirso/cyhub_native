@@ -1,11 +1,11 @@
 {
   "expo": {
     "name": "cyhub",
-    "description": "No description",
+    "description": "Mobile App for CyHub members",
     "slug": "cyhub",
     "privacy": "public",
     "sdkVersion": "22.0.0",
-    "version": "1.0.0",
+    "version": "0.1.0",
     "orientation": "portrait",
     "primaryColor": "#cccccc",
     "icon": "./assets/images/icon.png",
@@ -18,7 +18,8 @@
       "assetExts": ["ttf"]
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.junglecoders.cyhub"
     }
   }
 }
