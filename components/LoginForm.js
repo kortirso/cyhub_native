@@ -35,6 +35,6 @@ export default class LoginForm extends Component {
 const styles = StyleSheet.create({
   container: {padding: 10, backgroundColor: '#F2F2F2', width: '100%'},
   input: {width: '80%', height: 40, backgroundColor: 'rgba(255,255,255,1)', marginBottom: 10, marginLeft: '10%', padding: 10, color: '#000'},
-  buttonContainer: {width: '50%', backgroundColor: '#2980b6', paddingVertical: 15, marginLeft: '25%'},
-  buttonText: {color: '#FFF', textAlign: 'center', fontFamily: 'opensans-semibold', fontSize: 16}
+  buttonContainer: {width: '50%', backgroundColor: '#7db434', paddingVertical: 10, paddingHorizontal: 15, marginLeft: '25%'},
+  buttonText: {color: '#FFF', textAlign: 'center', fontFamily: 'opensans-semibold', fontSize: 14}
 });

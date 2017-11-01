@@ -24,7 +24,7 @@ export default class PartnersScreen extends React.Component {
   }
 
   async _fetchPartners() {
-    let response = await fetch(`http://localhost:3000/api/v1/partners.json`).then(function(response) {
+    let response = await fetch(`http://46.101.217.59:3013/api/v1/partners.json`).then(function(response) {
       return response;
     });
     let responseJson = await response.json();

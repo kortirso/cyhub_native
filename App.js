@@ -15,10 +15,8 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     await Font.loadAsync({
-      'opensans-light': require('./assets/fonts/OpenSans-Light.ttf'),
       'opensans-regular': require('./assets/fonts/OpenSans-Regular.ttf'),
       'opensans-semibold': require('./assets/fonts/OpenSans-Semibold.ttf'),
-      'oswald-light': require('./assets/fonts/Oswald-Light.ttf'),
       'oswald-regular': require('./assets/fonts/Oswald-Regular.ttf'),
       'oswald-medium': require('./assets/fonts/Oswald-Medium.ttf'),
       'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf')
@@ -35,7 +33,7 @@ export default class App extends React.Component {
   }
 
   async _login(username, password) {
-    let response = await fetch(`http://localhost:3000/api/v1/users/me.json?email=${username}&password=${password}`).then(function(response) {
+    let response = await fetch(`http://46.101.217.59:3013/api/v1/users/me.json?email=${username}&password=${password}`).then(function(response) {
       return response;
     });
     let responseJson = await response.json();

@@ -32,8 +32,8 @@ export default class HomeScreen extends React.Component {
               <View style={styles.welcomeContainer}>
                 <Image source={require('../assets/images/cyhub-icon.png')} style={styles.logoImage} />
                 <View>
-                  <Text style={styles.welcomeGreeting}>Hello!</Text>
-                  <Text style={styles.welcomeUser}>{this.state.user.email}</Text>
+                  <Text style={styles.welcomeGreeting}>Ya Sas!</Text>
+                  <Text style={styles.welcomeUser}>{this.state.user.username}</Text>
                 </View>
               </View>
               <ImageBackground source={require('../assets/images/backgrounds/back-days.jpg')} style={styles.opacityBackground}>
