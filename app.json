@@ -20,6 +20,9 @@
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.junglecoders.cyhub"
+    },
+    "android": {
+      "package": "com.junglecoders.cyhub"
     }
   }
 }
