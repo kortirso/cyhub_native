@@ -10,7 +10,8 @@ export default class App extends React.Component {
     fontLoaded: false,
     isLoadingComplete: false,
     logged: false,
-    user: null
+    user: null,
+    error: null
   };
 
   async componentDidMount() {
@@ -28,7 +29,7 @@ export default class App extends React.Component {
     if (this.state.logged) {
       return <RootNavigation user={this.state.user} fontLoaded={this.state.fontLoaded} />;
     } else {
-      return <Login login={this._login.bind(this)} fontLoaded={this.state.fontLoaded} />;
+      return <Login login={this._login.bind(this)} fontLoaded={this.state.fontLoaded} error={this.state.error} />;
     }
   }
 
@@ -38,6 +39,7 @@ export default class App extends React.Component {
     });
     let responseJson = await response.json();
     if (response.status == 200) this.setState({logged: true, user: responseJson.user});
+    else if (response.status == 401) this.setState({error: responseJson.error})
   }
 
   render() {

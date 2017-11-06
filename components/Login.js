@@ -12,7 +12,7 @@ export default class Login extends Component {
       <KeyboardAvoidingView behavior='padding' style={styles.container}>
         <View style={styles.loginContainer}>
           <Image source={require('../assets/images/cyhub-icon-full.png')} style={styles.welcomeImage} />
-          <LoginForm login={this._login.bind(this)} fontLoaded={this.props.fontLoaded} />
+          <LoginForm login={this._login.bind(this)} fontLoaded={this.props.fontLoaded} error={this.props.error} />
         </View>
       </KeyboardAvoidingView>
     );
