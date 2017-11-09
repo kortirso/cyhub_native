@@ -1,18 +1,18 @@
 {
   "expo": {
-    "name": "cyhub",
+    "name": "CyHub",
     "description": "Mobile App for CyHub members",
-    "slug": "Cyhub",
+    "slug": "CyHub",
     "privacy": "public",
     "sdkVersion": "22.0.0",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "orientation": "portrait",
-    "primaryColor": "#cccccc",
+    "primaryColor": "#CCC",
     "icon": "./assets/images/icon.png",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#FFF"
     },
     "packagerOpts": {
       "assetExts": ["ttf"]

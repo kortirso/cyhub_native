@@ -23,7 +23,7 @@ export default class LoginForm extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle='dark-content' />
-        <TextInput style={styles.input} autoCapitalize='none' onSubmitEditing={() => this.passwordInput.focus()} autoCorrect={false} keyboardType='email-address' returnKeyType='next' placeholder='Email' placeholderTextColor='rgba(210,210,210,1)' onChangeText={(text) => this.setState({username: text})} />
+        <TextInput style={styles.input} autoCapitalize='none' onSubmitEditing={() => this.passwordInput.focus()} autoCorrect={false} underlineColorAndroid='transparent' keyboardType='email-address' returnKeyType='next' placeholder='Email' placeholderTextColor='rgba(210,210,210,1)' onChangeText={(text) => this.setState({username: text})} />
         <TextInput style={styles.input} returnKeyType='go' ref={(input)=> this.passwordInput = input} placeholder='Password' placeholderTextColor='rgba(210,210,210,1)' secureTextEntry onChangeText={(text) => this.setState({password: text})} />
         {error}
         <TouchableOpacity style={styles.buttonContainer} onPress={this._onButtonPress.bind(this)}>
@@ -40,7 +40,7 @@ export default class LoginForm extends Component {
 
 const styles = StyleSheet.create({
   container: {padding: 10, backgroundColor: '#F2F2F2', width: '100%'},
-  input: {width: '80%', height: 40, backgroundColor: 'rgba(255,255,255,1)', marginBottom: 10, marginLeft: '10%', padding: 10, color: '#000'},
+  input: {width: '80%', height: 40, backgroundColor: '#FFF', marginBottom: 10, marginLeft: '10%', padding: 10, color: '#000'},
   buttonContainer: {width: '50%', backgroundColor: '#7db434', paddingVertical: 10, paddingHorizontal: 15, marginLeft: '25%'},
   buttonText: {color: '#FFF', textAlign: 'center', fontFamily: 'opensans-semibold', fontSize: 14},
   error: {color: 'red', fontSize: 14, width: '80%', marginLeft: '10%', paddingBottom: 10}
