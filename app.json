@@ -5,7 +5,7 @@
     "slug": "CyHub",
     "privacy": "public",
     "sdkVersion": "22.0.0",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "orientation": "portrait",
     "primaryColor": "#CCC",
     "icon": "./assets/images/icon.png",
