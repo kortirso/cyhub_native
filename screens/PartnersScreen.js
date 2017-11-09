@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import PartnerCard from '../components/PartnerCard';
+import PartnerScreen from '../components/PartnerScreen';
 
 export default class PartnersScreen extends React.Component {
   static navigationOptions = {
@@ -11,7 +12,8 @@ export default class PartnersScreen extends React.Component {
     super();
     this.state = {
       user: null,
-      partners: []
+      partners: [],
+      partner: null
     }
   }
 
@@ -32,9 +34,21 @@ export default class PartnersScreen extends React.Component {
   }
 
   _renderPartners() {
-    return this.state.partners.map((partner) => {
-      return <PartnerCard partner={partner} key={partner.id} />;
-    });
+    if (this.state.partner == null) {
+      return this.state.partners.map((partner) => {
+        return <PartnerCard partner={partner} partnerPress={this._onPartnerPress.bind(this)} key={partner.id} />;
+      });
+    } else {
+      return <PartnerScreen partner={this.state.partner} backPress={this._onPartnersBack.bind(this)} /> 
+    }
+  }
+
+  _onPartnerPress(partner) {
+    this.setState({partner: partner});
+  }
+
+  _onPartnersBack() {
+    this.setState({partner: null});
   }
 
   render() {
@@ -53,5 +67,5 @@ export default class PartnersScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#E5E5E5'}
+  container: {flex: 1, backgroundColor: '#FFF'}
 });

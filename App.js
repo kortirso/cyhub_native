@@ -39,7 +39,7 @@ export default class App extends React.Component {
     });
     let responseJson = await response.json();
     if (response.status == 200) this.setState({logged: true, user: responseJson.user, error: null});
-    else if (response.status == 401) this.setState({error: responseJson.error})
+    else if (response.status == 401) this.setState({error: responseJson.error});
   }
 
   render() {
