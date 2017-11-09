@@ -23,6 +23,27 @@ export default class HomeScreen extends React.Component {
     this.props.navigation.navigate('Partners');
   }
 
+  _memberDaysLeft(user) {
+    if (user.member != null) {
+      return (
+        <View style={styles.startedContainer}>
+          <Text style={styles.simpleText}>You got</Text>
+          <Text style={styles.getStartedText}>{user.member.days_left}</Text>
+          <Text style={styles.simpleText}>Hubster days left</Text>
+          <Text style={styles.simpleTextSmall}>For now that is!</Text>
+        </View>
+      )
+    } else {
+      return (
+        <View style={styles.guestContainer}>
+          <Text style={styles.simpleText}>You are not CyHub member yet</Text>
+          <Text style={styles.simpleText}>You need to call Michael Jakobsen</Text>
+          <Text style={styles.simpleTextSmall}>For now that is!</Text>
+        </View>
+      )
+    }
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -37,12 +58,7 @@ export default class HomeScreen extends React.Component {
                 </View>
               </View>
               <ImageBackground source={require('../assets/images/backgrounds/back-days.jpg')} style={styles.opacityBackground}>
-                <View style={styles.getStartedContainer}>
-                  <Text style={styles.simpleText}>You got</Text>
-                  <Text style={styles.getStartedText}>{this.state.user.days_left}</Text>
-                  <Text style={styles.simpleText}>Hubster days left</Text>
-                  <Text style={styles.simpleTextSmall}>For now that is!</Text>
-                </View>
+                {this._memberDaysLeft(this.state.user)}
               </ImageBackground>
               <ImageBackground source={require('../assets/images/backgrounds/back-partners.jpg')} style={styles.opacityBackground}>
                 <View style={styles.getPartnersContainer}>
@@ -65,7 +81,8 @@ const styles = StyleSheet.create({
   welcomeGreeting: {fontFamily: 'opensans-regular', fontSize: 14},
   welcomeUser: {fontFamily: 'oswald-medium', fontSize: 24, color: '#3A3A3A'},
   opacityBackground: {},
-  getStartedContainer: {alignItems: 'center', paddingVertical: 10, borderBottomWidth: 5, borderBottomColor: '#000', backgroundColor: 'rgba(255,255,255,0.75)'},
+  startedContainer: {alignItems: 'center', paddingVertical: 10, borderBottomWidth: 5, borderBottomColor: '#000', backgroundColor: 'rgba(255,255,255,0.75)'},
+  guestContainer: {alignItems: 'center', paddingVertical: 30, borderBottomWidth: 5, borderBottomColor: '#000', backgroundColor: 'rgba(255,255,255,0.75)'},
   getPartnersContainer: {alignItems: 'center', paddingVertical: 0, paddingHorizontal: 0, borderBottomWidth: 5, borderBottomColor: '#000', backgroundColor: 'rgba(255,255,255,0.75)'},
   simpleText: {fontFamily: 'opensans-regular', fontSize: 16, lineHeight: 24, color: 'rgba(96,100,109,1)', backgroundColor: 'transparent'},
   simpleTextSmall: {fontFamily: 'opensans-regular', fontSize: 14, lineHeight: 24, color: 'rgba(96,100,109,1)', backgroundColor: 'transparent'},

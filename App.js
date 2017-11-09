@@ -34,11 +34,11 @@ export default class App extends React.Component {
   }
 
   async _login(username, password) {
-    let response = await fetch(`http://46.101.217.59:3013/api/v1/users/me.json?email=${username}&password=${password}`).then(function(response) {
+    let response = await fetch(`http://localhost:3000/api/v1/users/me.json?email=${username}&password=${password}`).then(function(response) {
       return response;
     });
     let responseJson = await response.json();
-    if (response.status == 200) this.setState({logged: true, user: responseJson.user});
+    if (response.status == 200) this.setState({logged: true, user: responseJson.user, error: null});
     else if (response.status == 401) this.setState({error: responseJson.error})
   }
 
