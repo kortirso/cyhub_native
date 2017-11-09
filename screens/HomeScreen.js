@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, ScrollView, StyleSheet, Text, TouchableOpacity, View, ImageBackground } from 'react-native';
+import { Image, Platform, ScrollView, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 
@@ -74,7 +74,7 @@ export default class HomeScreen extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  container: {flex: 1, backgroundColor: '#E5E5E5'},
+  container: {flex: 1, backgroundColor: '#FFF'},
   contentContainer: {paddingTop: 0},
   welcomeContainer: {paddingVertical: 10, paddingLeft: 15, flex: 1, flexDirection: 'row', borderBottomWidth: 5, borderBottomColor: '#000'},
   logoImage: {width: 50, height: 50, resizeMode: 'contain', marginRight: 20},

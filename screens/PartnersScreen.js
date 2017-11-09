@@ -39,7 +39,7 @@ export default class PartnersScreen extends React.Component {
         return <PartnerCard partner={partner} partnerPress={this._onPartnerPress.bind(this)} key={partner.id} />;
       });
     } else {
-      return <PartnerScreen partner={this.state.partner} backPress={this._onPartnersBack.bind(this)} /> 
+      return <PartnerScreen partner={this.state.partner} backPress={this._onPartnersBack.bind(this)} />
     }
   }
 

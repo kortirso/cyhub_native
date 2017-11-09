@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import MemberCard from '../components/MemberCard';
+import MemberScreen from '../components/MemberScreen';
 
 export default class MembersScreen extends React.Component {
   static navigationOptions = {
@@ -11,7 +12,8 @@ export default class MembersScreen extends React.Component {
     super();
     this.state = {
       user: null,
-      members: []
+      members: [],
+      member: null
     }
   }
 
@@ -32,9 +34,21 @@ export default class MembersScreen extends React.Component {
   }
 
   _renderMembers() {
-    return this.state.members.map((member) => {
-      return <MemberCard member={member} key={member.id} />;
-    });
+    if (this.state.member == null) {
+      return this.state.members.map((member) => {
+        return <MemberCard member={member} memberPress={this._onMemberPress.bind(this)} key={member.id} />;
+      });
+    } else {
+      return <MemberScreen member={this.state.member} backPress={this._onMembersBack.bind(this)} />
+    }
+  }
+
+  _onMemberPress(member) {
+    this.setState({member: member});
+  }
+
+  _onMembersBack() {
+    this.setState({member: null});
   }
 
   render() {
