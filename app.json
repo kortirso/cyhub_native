@@ -23,7 +23,7 @@
     },
     "android": {
       "package": "com.junglecoders.cyhubcoworking",
-      "versionCode": "2"
+      "versionCode": 2
     }
   }
 }
