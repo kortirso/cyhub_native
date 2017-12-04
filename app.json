@@ -22,7 +22,8 @@
       "bundleIdentifier": "com.junglecoders.cyhubcoworking"
     },
     "android": {
-      "package": "com.junglecoders.cyhubcoworking"
+      "package": "com.junglecoders.cyhubcoworking",
+      "versionCode": "2"
     }
   }
 }
