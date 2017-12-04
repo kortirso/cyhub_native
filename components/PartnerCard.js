@@ -20,5 +20,5 @@ export default class PartnerCard extends Component {
 const styles = StyleSheet.create({
   container: {flex: 1, paddingHorizontal: 20, paddingVertical: 20, backgroundColor: '#FFF', borderBottomWidth: 5, borderBottomColor: '#000'},
   textName: {fontFamily: 'oswald-medium', fontSize: 20, fontWeight: '500', color: 'rgba(96,100,109,1)'},
-  textLabel: {fontFamily: 'opensans-regular', fontSize: 14, color: 'rgba(96,100,109,1)', lineHeight: 16, marginBottom: 10}
+  textLabel: {fontFamily: 'opensans-regular', fontSize: 14, color: 'rgba(96,100,109,1)', lineHeight: 20, marginBottom: 10}
 });

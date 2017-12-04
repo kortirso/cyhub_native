@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, StatusBar, AsyncStorage } from 'react-native';
 import CheckBox from 'react-native-check-box';
+import Colors from '../constants/Colors';
 
 export default class LoginForm extends Component {
   constructor() {
@@ -33,7 +34,7 @@ export default class LoginForm extends Component {
   }
 
   _renderCheckBox() {
-    if(this.state.loaded) return <CheckBox style={styles.checkbox} checkBoxColor={'#7db434'} onClick={this._changeBox.bind(this)} isChecked={this.state.checked} rightText={'Remember me'} />;
+    if(this.state.loaded) return <CheckBox style={styles.checkbox} checkBoxColor={Colors.tintColor} onClick={this._changeBox.bind(this)} isChecked={this.state.checked} rightText={'Remember me'} />;
   }
 
   _changeBox() {
