@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Platform, StatusBar, StyleSheet, View, AsyncStorage } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
@@ -43,6 +43,8 @@ export default class App extends React.Component {
     let responseJson = await response.json();
     if (response.status == 200) {
       store.dispatch(loadUser(responseJson.user));
+      await AsyncStorage.setItem('username', username);
+      await AsyncStorage.setItem('password', password);
       this.setState({logged: true, error: null});
     } else if (response.status == 401) this.setState({error: responseJson.error});
   }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, StatusBar } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, StatusBar, AsyncStorage } from 'react-native';
 
 export default class LoginForm extends Component {
   constructor() {
@@ -8,6 +8,16 @@ export default class LoginForm extends Component {
       username: '',
       password: ''
     }
+  }
+
+  componentWillMount() {
+    this._checkStorage();
+  }
+
+  async _checkStorage() {
+    let username = await AsyncStorage.getItem('username');
+    let password = await AsyncStorage.getItem('password');
+    if(username != null && password != null) this.setState({username: username, password: password});
   }
 
   _onButtonPress() {
@@ -23,8 +33,8 @@ export default class LoginForm extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle='dark-content' />
-        <TextInput style={styles.input} autoCapitalize='none' onSubmitEditing={() => this.passwordInput.focus()} autoCorrect={false} underlineColorAndroid='transparent' keyboardType='email-address' returnKeyType='next' placeholder='Email' placeholderTextColor='rgba(210,210,210,1)' onChangeText={(text) => this.setState({username: text})} />
-        <TextInput style={styles.input} returnKeyType='go' ref={(input)=> this.passwordInput = input} placeholder='Password' placeholderTextColor='rgba(210,210,210,1)' secureTextEntry onChangeText={(text) => this.setState({password: text})} />
+        <TextInput style={styles.input} autoCapitalize='none' onSubmitEditing={() => this.passwordInput.focus()} autoCorrect={false} underlineColorAndroid='transparent' keyboardType='email-address' returnKeyType='next' placeholder='Email' placeholderTextColor='rgba(210,210,210,1)' onChangeText={(text) => this.setState({username: text})} value={this.state.username} />
+        <TextInput style={styles.input} returnKeyType='go' ref={(input)=> this.passwordInput = input} placeholder='Password' placeholderTextColor='rgba(210,210,210,1)' secureTextEntry onChangeText={(text) => this.setState({password: text})} value={this.state.password} />
         {error}
         <TouchableOpacity style={styles.buttonContainer} onPress={this._onButtonPress.bind(this)}>
           {
