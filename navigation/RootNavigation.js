@@ -27,7 +27,7 @@ export default class RootNavigator extends React.Component {
   }
 
   render() {
-    return <RootStackNavigator screenProps={{user: this.props.user, fontLoaded: this.props.fontLoaded}} />;
+    return <RootStackNavigator screenProps={{fontLoaded: this.props.fontLoaded}} />;
   }
 
   _registerForPushNotifications() {

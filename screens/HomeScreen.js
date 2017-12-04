@@ -2,6 +2,7 @@ import React from 'react';
 import { Image, Platform, ScrollView, StyleSheet, Text, View, ImageBackground } from 'react-native';
 import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
+import store from '../store';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -16,7 +17,7 @@ export default class HomeScreen extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({user: this.props.screenProps.user});
+    this.setState({user: store.getState().data.user});
   }
 
   _onPartnersPress() {

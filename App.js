@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
 import Login from './components/Login';
 import store from './store';
+import { loadUser } from './actions'
 
 export default class App extends React.Component {
   state = {
@@ -29,7 +30,7 @@ export default class App extends React.Component {
 
   _checkLogged() {
     if (this.state.logged) {
-      return <RootNavigation user={this.state.user} fontLoaded={this.state.fontLoaded} />;
+      return <RootNavigation fontLoaded={this.state.fontLoaded} />;
     } else {
       return <Login login={this._login.bind(this)} fontLoaded={this.state.fontLoaded} error={this.state.error} />;
     }
@@ -40,12 +41,13 @@ export default class App extends React.Component {
       return response;
     });
     let responseJson = await response.json();
-    if (response.status == 200) this.setState({logged: true, user: responseJson.user, error: null});
-    else if (response.status == 401) this.setState({error: responseJson.error});
+    if (response.status == 200) {
+      store.dispatch(loadUser(responseJson.user));
+      this.setState({logged: true, error: null});
+    } else if (response.status == 401) this.setState({error: responseJson.error});
   }
 
   render() {
-    console.log(store.getState());
     if (!this.state.isLoadingComplete && !this.props.skipLoadingScreen) {
       return (
         <AppLoading startAsync={this._loadResourcesAsync} onError={this._handleLoadingError} onFinish={this._handleFinishLoading} />

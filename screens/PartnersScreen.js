@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import PartnerCard from '../components/PartnerCard';
 import PartnerScreen from '../components/PartnerScreen';
+import store from '../store';
 
 export default class PartnersScreen extends React.Component {
   static navigationOptions = {
@@ -22,7 +23,7 @@ export default class PartnersScreen extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({user: this.props.screenProps.user});
+    this.setState({user: store.getState().data.user});
   }
 
   async _fetchPartners() {
