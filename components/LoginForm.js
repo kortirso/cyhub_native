@@ -33,7 +33,7 @@ export default class LoginForm extends Component {
   }
 
   _renderCheckBox() {
-    if(this.state.loaded) return <CheckBox style={styles.checkbox} onClick={this._changeBox.bind(this)} isChecked={this.state.checked} rightText={'Remember me'} />;
+    if(this.state.loaded) return <CheckBox style={styles.checkbox} checkBoxColor={'#7db434'} onClick={this._changeBox.bind(this)} isChecked={this.state.checked} rightText={'Remember me'} />;
   }
 
   _changeBox() {
