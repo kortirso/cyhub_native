@@ -1,9 +1,12 @@
 import React from 'react';
-import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { Provider } from 'react-redux';
+import { Platform, StatusBar, StyleSheet, View, AsyncStorage } from 'react-native';
 import { AppLoading, Asset, Font } from 'expo';
 import { Ionicons } from '@expo/vector-icons';
 import RootNavigation from './navigation/RootNavigation';
 import Login from './components/Login';
+import store from './store';
+import { loadUser } from './actions'
 
 export default class App extends React.Component {
   state = {
@@ -27,19 +30,23 @@ export default class App extends React.Component {
 
   _checkLogged() {
     if (this.state.logged) {
-      return <RootNavigation user={this.state.user} fontLoaded={this.state.fontLoaded} />;
+      return <RootNavigation fontLoaded={this.state.fontLoaded} />;
     } else {
       return <Login login={this._login.bind(this)} fontLoaded={this.state.fontLoaded} error={this.state.error} />;
     }
   }
 
-  async _login(username, password) {
+  async _login(username, password, checked) {
     let response = await fetch(`http://46.101.217.59:3013/api/v1/users/me.json?email=${username}&password=${password}`).then(function(response) {
       return response;
     });
     let responseJson = await response.json();
-    if (response.status == 200) this.setState({logged: true, user: responseJson.user, error: null});
-    else if (response.status == 401) this.setState({error: responseJson.error});
+    if (response.status == 200) {
+      store.dispatch(loadUser(responseJson.user));
+      await AsyncStorage.setItem('username', checked ? username : '');
+      await AsyncStorage.setItem('password', checked ? password : '');
+      this.setState({logged: true, error: null});
+    } else if (response.status == 401) this.setState({error: responseJson.error});
   }
 
   render() {
@@ -49,11 +56,13 @@ export default class App extends React.Component {
       );
     } else {
       return (
-        <View style={styles.container}>
-          {Platform.OS === 'ios' && <StatusBar barStyle='default' />}
-          {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
-            {this._checkLogged()}
-        </View>
+        <Provider store={store}>
+          <View style={styles.container}>
+            {Platform.OS === 'ios' && <StatusBar barStyle='default' />}
+            {Platform.OS === 'android' && <View style={styles.statusBarUnderlay} />}
+              {this._checkLogged()}
+          </View>
+        </Provider>
       );
     }
   }

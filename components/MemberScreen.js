@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import Colors from '../constants/Colors';
 
 export default class MemberScreen extends Component {
   _onBackPress() {
@@ -23,7 +24,7 @@ export default class MemberScreen extends Component {
 const styles = StyleSheet.create({
   container: {flex: 1, paddingHorizontal: 20, paddingVertical: 20, backgroundColor: '#FFF'},
   textName: {fontFamily: 'oswald-medium', fontSize: 20, fontWeight: '500', color: 'rgba(96,100,109,1)'},
-  textDescription: {fontFamily: 'opensans-regular', fontSize: 16, color: 'rgba(96,100,109,1)', lineHeight: 20, marginBottom: 5},
-  buttonContainer: {width: '60%', backgroundColor: '#7db434', paddingVertical: 10, paddingHorizontal: 10, marginTop: 15},
+  textDescription: {fontFamily: 'opensans-regular', fontSize: 14, color: 'rgba(96,100,109,1)', lineHeight: 20, marginBottom: 10},
+  buttonContainer: {width: '60%', backgroundColor: Colors.tintColor, paddingVertical: 10, paddingHorizontal: 10, marginTop: 15},
   buttonText: {color: '#FFF', textAlign: 'center', fontFamily: 'opensans-semibold', fontSize: 14}
 });

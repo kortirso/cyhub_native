@@ -2,6 +2,7 @@ import React from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import MemberCard from '../components/MemberCard';
 import MemberScreen from '../components/MemberScreen';
+import store from '../store';
 
 export default class MembersScreen extends React.Component {
   static navigationOptions = {
@@ -22,7 +23,7 @@ export default class MembersScreen extends React.Component {
   }
 
   componentWillMount() {
-    this.setState({user: this.props.screenProps});
+    this.setState({user: store.getState().data.user});
   }
 
   async _fetchMembers() {
