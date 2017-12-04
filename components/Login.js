@@ -3,8 +3,8 @@ import { View, StyleSheet, KeyboardAvoidingView, Image } from 'react-native';
 import LoginForm from './LoginForm';
 
 export default class Login extends Component {
-  _login(username, password) {
-    this.props.login(username, password);
+  _login(username, password, checked) {
+    this.props.login(username, password, checked);
   }
 
   render() {

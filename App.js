@@ -36,15 +36,15 @@ export default class App extends React.Component {
     }
   }
 
-  async _login(username, password) {
+  async _login(username, password, checked) {
     let response = await fetch(`http://46.101.217.59:3013/api/v1/users/me.json?email=${username}&password=${password}`).then(function(response) {
       return response;
     });
     let responseJson = await response.json();
     if (response.status == 200) {
       store.dispatch(loadUser(responseJson.user));
-      await AsyncStorage.setItem('username', username);
-      await AsyncStorage.setItem('password', password);
+      await AsyncStorage.setItem('username', checked ? username : '');
+      await AsyncStorage.setItem('password', checked ? password : '');
       this.setState({logged: true, error: null});
     } else if (response.status == 401) this.setState({error: responseJson.error});
   }
