@@ -35,11 +35,15 @@ export default TabNavigator(
             iconName = Platform.OS === 'ios' ? `ios-contacts${focused ? '' : '-outline'}` : 'md-contacts';
         }
         return <Ionicons name={iconName} size={28} style={{ marginBottom: -3 }} color={focused ? Colors.tabIconSelected : Colors.tabIconDefault} />;
-      },
+      }
     }),
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     animationEnabled: false,
     swipeEnabled: false,
+    tabBarOptions: {
+      activeTintColor: '#000',
+      inactiveTintColor: '#000'
+    },
   }
 );
