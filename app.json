@@ -5,7 +5,7 @@
     "slug": "CyHub",
     "privacy": "public",
     "sdkVersion": "22.0.0",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "orientation": "portrait",
     "primaryColor": "#CCC",
     "icon": "./assets/images/icon.png",
@@ -23,7 +23,7 @@
     },
     "android": {
       "package": "com.junglecoders.cyhubcoworking",
-      "versionCode": 2
+      "versionCode": 3
     }
   }
 }
